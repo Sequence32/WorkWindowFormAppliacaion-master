@@ -1,0 +1,9 @@
+C:\Users\Dustin\documents\visual studio 2015\Projects\WorkWindowFormAppliacaion\PopUPBox\bin\Debug\PopUPBox.exe.config
+C:\Users\Dustin\documents\visual studio 2015\Projects\WorkWindowFormAppliacaion\PopUPBox\bin\Debug\PopUPBox.exe
+C:\Users\Dustin\documents\visual studio 2015\Projects\WorkWindowFormAppliacaion\PopUPBox\bin\Debug\PopUPBox.pdb
+C:\Users\Dustin\documents\visual studio 2015\Projects\WorkWindowFormAppliacaion\PopUPBox\obj\Debug\PopUPBox.csprojResolveAssemblyReference.cache
+C:\Users\Dustin\documents\visual studio 2015\Projects\WorkWindowFormAppliacaion\PopUPBox\obj\Debug\PopUPBox.addNewForm.resources
+C:\Users\Dustin\documents\visual studio 2015\Projects\WorkWindowFormAppliacaion\PopUPBox\obj\Debug\PopUPBox.Properties.Resources.resources
+C:\Users\Dustin\documents\visual studio 2015\Projects\WorkWindowFormAppliacaion\PopUPBox\obj\Debug\PopUPBox.csproj.GenerateResource.Cache
+C:\Users\Dustin\documents\visual studio 2015\Projects\WorkWindowFormAppliacaion\PopUPBox\obj\Debug\PopUPBox.exe
+C:\Users\Dustin\documents\visual studio 2015\Projects\WorkWindowFormAppliacaion\PopUPBox\obj\Debug\PopUPBox.pdb
