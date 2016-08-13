@@ -96,7 +96,7 @@ namespace WorkWindowFormAppliacaion
                         }
                         else if (String.Compare(newNode.name, curr.name) < 0)
                         {
-
+                            if(this is different )
                         }
                         curr = curr.next;
                     }
