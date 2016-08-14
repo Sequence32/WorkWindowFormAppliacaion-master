@@ -60,8 +60,8 @@ namespace WorkWindowFormAppliacaion
                         list.head = newNode;
                         newNode.next = curr;
                         curr.next = null;
-
                     }
+                    
                 }
                 else
                 {
@@ -82,6 +82,7 @@ namespace WorkWindowFormAppliacaion
                                 break;
 
                             }
+
                             //head.next is not null
                             else if ((curr == list.head) && (list.head.next != null))
                             {
@@ -89,14 +90,23 @@ namespace WorkWindowFormAppliacaion
                                 list.head = newNode;
                                 newNode.next = curr;
                                 break;
-
                             }
-
-
                         }
-                        else if (String.Compare(newNode.name, curr.name) < 0)
+                        else if((String.Compare(newNode.name, curr.name) > 0) && (String.Compare(newNode.name, curr.next.name) < 0))
                         {
-                            if(this is different )
+                            temp = curr.next;
+                            curr.next = newNode;
+                            newNode.next = temp;
+                            
+                        }
+                        else if (String.Compare(newNode.name, curr.name) == 0)
+                        {
+                            System.Windows.Forms.MessageBox.Show("That part alread exist/nDelete to remake this part");
+                        }
+                        else if(curr.next.next == null)
+                        {
+                            curr.next = newNode;
+                            newNode.next = null;
                         }
                         curr = curr.next;
                     }
