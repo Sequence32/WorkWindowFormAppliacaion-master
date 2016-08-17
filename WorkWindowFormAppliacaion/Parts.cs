@@ -38,77 +38,80 @@ namespace WorkWindowFormAppliacaion
         //Adding new Node to list in Alphabedical order
         public Node addNodeToList(Part list, Node newNode)
         {
+            bool notBreak = true;
             //if head is null we startThe list 
             if (list.head == null)
             {
+                newNode.next = null;
                 list.head = newNode;
-                list.first = newNode;
-                
+                            
             }
             //If the head of list is not null make a new node
             else if (list.head != null)
-            {             
-                Node curr = new Node();
-                Node temp;
-
-                curr = list.head;
-
-                if (curr.next == null)
+            {
+                Node curr = list.head;
+                Node prev = list.head;
+                if(head.name == newNode.name)
                 {
-                    if (String.Compare(newNode.name, curr.name) > 0)
+                    System.Windows.Forms.MessageBox.Show("names were ==");
+                }
+                else if ((head.next == null)||((String.Compare(newNode.name, curr.name) < 0)))
+                {
+                    if (String.Compare(newNode.name, curr.name) < 0)
                     {
-                        list.head = newNode;
+                        Console.WriteLine("head.next is null and  newNOde procedes");
+                        list.head = newNode;                                             
+                        notBreak = false;
                         newNode.next = curr;
-                        curr.next = null;
+                        if(head.next == null)
+                        {
+                            curr.next = null;
+                        }
+
                     }
-                    
+                    else
+                    {
+                        head.next = newNode;
+                        newNode.next = null;
+                        notBreak = false;
+                    }                   
                 }
                 else
                 {
                     //Traverse through the list untill end of list or Alphabedicaly correct order then break
-                    while (curr.next != null)
+                    prev = curr;
+                    curr = curr.next;
+                    do
                     {
-                        Console.WriteLine("Close but no sugar");
-                        // if less than 0 nweNode.name precedes string curr name in the list 
-                        if (String.Compare(newNode.name, curr.name) > 0)
+                        Console.WriteLine("Dodododo");
+
+                        //head.next is not null
+                        if (String.Compare(newNode.name, curr.name) == 0)
                         {
-                            Console.WriteLine("We made it this far");
-                            // head next is null and newNode is placed as new head
-                            if (list.head.next == null)
-                            {
-                                list.head = newNode;
-                                newNode.next = curr;
-                                curr.next = null;
-                                break;
-
-                            }
-
-                            //head.next is not null
-                            else if ((curr == list.head) && (list.head.next != null))
-                            {
-
-                                list.head = newNode;
-                                newNode.next = curr;
-                                break;
-                            }
+                            System.Windows.Forms.MessageBox.Show("names were ==");
+                            newNode = null;
+                            notBreak = false;
                         }
-                        else if((String.Compare(newNode.name, curr.name) > 0) && (String.Compare(newNode.name, curr.next.name) < 0))
+                        else if ((String.Compare(newNode.name, curr.name) < 0))
                         {
-                            temp = curr.next;
-                            curr.next = newNode;
-                            newNode.next = temp;
+                            Console.WriteLine("newNode name preceds curr.name");
+                            Console.WriteLine(prev.name + " | " + curr.name);
+                            prev.next = newNode;
+                            newNode.next = curr;
                             
+                            
+                            notBreak = false;
+                            break;
                         }
-                        else if (String.Compare(newNode.name, curr.name) == 0)
-                        {
-                            System.Windows.Forms.MessageBox.Show("That part alread exist/nDelete to remake this part");
-                        }
-                        else if(curr.next.next == null)
-                        {
-                            curr.next = newNode;
-                            newNode.next = null;
-                        }
+                        prev = curr;
                         curr = curr.next;
+                    } while (curr.next != null);
+                    if (notBreak == true)
+                    {
+
+                        Console.WriteLine("break is true");
+                        curr.next = newNode;
+                        newNode.next = null;
                     }
                     // curr.next = newNode;
                 } 
