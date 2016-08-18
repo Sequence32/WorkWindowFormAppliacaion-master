@@ -45,7 +45,7 @@ namespace WorkWindowFormAppliacaion
                 while (curr.next != null)
                 {
                     ListViewItem listBox1 = new ListViewItem(curr.name);
-                    listBox1.SubItems.Add(curr.price.ToString());
+                    listBox1.SubItems.Add((curr.price.ToString("C")));
                     listBox1.SubItems.Add(curr.partNo.ToString());
                     listView2.Items.Add(listBox1);
 
@@ -53,7 +53,7 @@ namespace WorkWindowFormAppliacaion
 
                 }
                 ListViewItem listBox11 = new ListViewItem(curr.name);
-                listBox11.SubItems.Add(curr.price.ToString());
+                listBox11.SubItems.Add(curr.price.ToString("C"));
                 listBox11.SubItems.Add(curr.partNo.ToString());
                 listView2.Items.Add(listBox11);
 
@@ -71,6 +71,17 @@ namespace WorkWindowFormAppliacaion
         private void listView2_SelectedIndexChanged_1(object sender, EventArgs e)
         {
           
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            foreach(ListViewItem eachItem in listView2.SelectedItems)
+            {
+               newPartList.deleteNode(listView2.Items.IndexOf(eachItem));
+                
+                listView2.Items.Remove(eachItem);
+
+            }
         }
     }
 }
