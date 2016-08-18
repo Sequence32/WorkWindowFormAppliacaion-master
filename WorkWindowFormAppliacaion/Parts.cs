@@ -90,6 +90,7 @@ namespace WorkWindowFormAppliacaion
                                 System.Windows.Forms.MessageBox.Show("names were ==");
                                 newNode = null;
                                 notBreak = false;
+                                break;
                             }
                         }
                         if (String.Compare(newNode.name, curr.name) == 0)
@@ -97,6 +98,7 @@ namespace WorkWindowFormAppliacaion
                             System.Windows.Forms.MessageBox.Show("names were ==");
                             newNode = null;
                             notBreak = false;
+                            break;
                         }
                         else if ((String.Compare(newNode.name, curr.name) < 0))
                         {
@@ -158,32 +160,61 @@ namespace WorkWindowFormAppliacaion
         }
 
         public void writeToFile()
-        {       
-            Node curr = head;
-            
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"partInformation1.txt"))
-            { 
-                while(curr.next != null)
-                {
-                    file.WriteLine(curr.name.ToString(), curr.partNo.ToString(), curr.partNo.ToString());
-                    Console.WriteLine(curr.name + "written to file");
-                    curr = curr.next;        
-                }
-                file.WriteLine(curr.name, curr.partNo, curr.partNo);
-                Console.WriteLine(curr.name + "written to file");
-
-                file.Close();
-            }
-        }
-        
-        public void readFromFile()
         {
             Node curr = head;
+            if (head != null)
+            {
+
+
+                using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"partInformation1.txt"))
+                {
+                    while (curr.next != null)
+                    {
+                        file.WriteLine(curr.name);
+                        file.WriteLine(curr.partNo);
+                        file.WriteLine(curr.price);
+                        Console.WriteLine(curr.name + "written to file");
+                        curr = curr.next;
+                    }
+                    file.WriteLine(curr.name);
+                    file.WriteLine(curr.partNo);
+                    file.WriteLine(curr.price);
+                    Console.WriteLine(curr.name + "written to file");
+
+                    file.Close();
+                }
+            }
+        }
+        public void readFromFile()
+        {
+            int i = 0;
+            Node curr = head;
+            int partNum =1;
+            string partName="";
+            double partPrice;
+
             string[] file = System.IO.File.ReadAllLines(@"partInformation1.txt");
            
             {
                 foreach (string line in file)
                 {
+                    if (i == 0)
+                    {
+    
+                        partName = line;
+                        i++;
+                    }     
+                    else if(i == 1)
+                    {  
+                        partNum = Convert.ToInt32(line);
+                        i++;
+                    }
+                    else
+                    {
+                        partPrice = Convert.ToDouble(line);
+                        addNodeToList(createNode(partName, partNum, partPrice));
+                        i = 0;
+                    }
 
                 }
             }

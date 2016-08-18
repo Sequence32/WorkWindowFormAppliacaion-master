@@ -85,6 +85,11 @@ namespace WorkWindowFormAppliacaion
         {
             newPartList.writeToFile();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            newPartList.readFromFile();
+        }
     }
 }
 
