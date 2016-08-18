@@ -37,7 +37,7 @@ namespace WorkWindowFormAppliacaion
         private void button2_Click(object sender, EventArgs e)
         {
 
-            if (newPartList != null)
+            if (newPartList.head != null)
             {
                 listView2.Items.Clear();
                 Node curr = newPartList.head;
@@ -57,9 +57,6 @@ namespace WorkWindowFormAppliacaion
                 listBox11.SubItems.Add(curr.partNo.ToString());
                 listView2.Items.Add(listBox11);
 
-
-              //  listBox1.SubItems.Add(curr.price.ToString());
-              // listBox1.SubItems.Add(curr.partNo.ToString());
             }
         }
 
@@ -82,6 +79,11 @@ namespace WorkWindowFormAppliacaion
                 listView2.Items.Remove(eachItem);
 
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            newPartList.writeToFile();
         }
     }
 }

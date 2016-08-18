@@ -40,7 +40,7 @@ namespace WorkWindowFormAppliacaion
                         int partNumber = Convert.ToInt32(this.partNoText.Text);
                         double partPrice = Convert.ToDouble(this.priceText.Text);
                     
-                        theList.addNodeToList(theList, theList.createNode(nameText.Text, partNumber, partPrice));
+                        theList.addNodeToList(theList.createNode(nameText.Text, partNumber, partPrice));
 
                         Form1 firstForm = new Form1(theList);
                                                                

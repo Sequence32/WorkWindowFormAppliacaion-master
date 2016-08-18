@@ -21,7 +21,7 @@ namespace WorkWindowFormAppliacaion
         public Node head = null;
         public Node first = null;
 
-
+        //Makes new node to add to partList
         public Node createNode(string name, int partNo, double price)
         {
            
@@ -31,26 +31,26 @@ namespace WorkWindowFormAppliacaion
             newNode.partNo = partNo;
             newNode.name = name;
             newNode.price = price;
-                
+
             return newNode;
         }
 
         //Adding new Node to list in Alphabedical order
-        public Node addNodeToList(Part list, Node newNode)
+        public void addNodeToList(Node newNode)
         {
             bool notBreak = true;
             //if head is null we startThe list 
-            if ((list.head == null) || (list == null))
+            if (head == null) 
             {
-                list.head = newNode;
+                head = newNode;
                 newNode.next = null;
                                           
             }
             //If the head of list is not null make a new node
-            else if (list.head != null)
+            else if (head != null)
             {
-                Node curr = list.head;
-                Node prev = list.head;
+                Node curr = head;
+                Node prev = head;
                 if(head.name == newNode.name)
                 {
                     System.Windows.Forms.MessageBox.Show("names were ==");
@@ -59,8 +59,8 @@ namespace WorkWindowFormAppliacaion
                 {
                     if (String.Compare(newNode.name, curr.name) < 0)
                     {
-                        Console.WriteLine("head.next is null and  newNOde procedes");
-                        list.head = newNode;                                             
+
+                        head = newNode;                                             
                         notBreak = false;
                         newNode.next = curr;
                         if(head.next == null)
@@ -82,7 +82,6 @@ namespace WorkWindowFormAppliacaion
                     prev = curr;
                     do
                     {
-                        Console.WriteLine("Dodododo");
 
                         if(curr.next != null)
                         {
@@ -101,11 +100,8 @@ namespace WorkWindowFormAppliacaion
                         }
                         else if ((String.Compare(newNode.name, curr.name) < 0))
                         {
-                            Console.WriteLine("newNode name preceds curr.name");
-                            Console.WriteLine(prev.name + " | " + curr.name);
                             prev.next = newNode;
-                            newNode.next = curr;
-                            
+                            newNode.next = curr;                          
                             
                             notBreak = false;
                             break;
@@ -116,7 +112,6 @@ namespace WorkWindowFormAppliacaion
 
                     if (notBreak == true)
                     {
-                        Console.WriteLine("break is true");
                         if (String.Compare(newNode.name, curr.name) < 0)
                         {
                             newNode.next = curr;
@@ -129,12 +124,11 @@ namespace WorkWindowFormAppliacaion
                             newNode.next = null;
                         }
                            
-                    }
-                    // curr.next = newNode;
+                    } 
                 } 
             }
-            return newNode;
         }
+
 
         public void deleteNode(int nodeToRemove)
         {
@@ -163,8 +157,42 @@ namespace WorkWindowFormAppliacaion
 
         }
 
+        public void writeToFile()
+        {       
+            Node curr = head;
+            
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"partInformation1.txt"))
+            { 
+                while(curr.next != null)
+                {
+                    file.WriteLine(curr.name.ToString(), curr.partNo.ToString(), curr.partNo.ToString());
+                    Console.WriteLine(curr.name + "written to file");
+                    curr = curr.next;        
+                }
+                file.WriteLine(curr.name, curr.partNo, curr.partNo);
+                Console.WriteLine(curr.name + "written to file");
+
+                file.Close();
+            }
+        }
+        
+        public void readFromFile()
+        {
+            Node curr = head;
+            string[] file = System.IO.File.ReadAllLines(@"partInformation1.txt");
+           
+            {
+                foreach (string line in file)
+                {
+
+                }
+            }
+        }
+
+
     }
     
+
 }
 
 
