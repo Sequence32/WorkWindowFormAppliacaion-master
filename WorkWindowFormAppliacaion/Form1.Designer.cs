@@ -40,6 +40,7 @@ namespace WorkWindowFormAppliacaion
             this.partNumLV = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -64,16 +65,17 @@ namespace WorkWindowFormAppliacaion
             // clearButton
             // 
             this.clearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clearButton.Location = new System.Drawing.Point(298, 495);
+            this.clearButton.Location = new System.Drawing.Point(655, 485);
             this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(75, 23);
+            this.clearButton.Size = new System.Drawing.Size(55, 75);
             this.clearButton.TabIndex = 4;
-            this.clearButton.Text = "button2";
+            this.clearButton.Text = "Show List";
             this.clearButton.UseVisualStyleBackColor = true;
             this.clearButton.Click += new System.EventHandler(this.button2_Click);
             // 
             // button2
             // 
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Location = new System.Drawing.Point(102, 12);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
@@ -116,32 +118,47 @@ namespace WorkWindowFormAppliacaion
             // button3
             // 
             this.button3.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(621, 615);
+            this.button3.Location = new System.Drawing.Point(610, 615);
             this.button3.Name = "button3";
             this.button3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.button3.Size = new System.Drawing.Size(100, 43);
             this.button3.TabIndex = 8;
             this.button3.Text = "Write to File";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
             this.button4.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.ForeColor = System.Drawing.Color.Black;
-            this.button4.Location = new System.Drawing.Point(621, 566);
+            this.button4.Location = new System.Drawing.Point(610, 566);
             this.button4.Name = "button4";
             this.button4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.button4.Size = new System.Drawing.Size(100, 43);
             this.button4.TabIndex = 9;
             this.button4.Text = "Inport list";
             this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.ForeColor = System.Drawing.Color.Black;
+            this.button5.Location = new System.Drawing.Point(289, 497);
+            this.button5.Name = "button5";
+            this.button5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.button5.Size = new System.Drawing.Size(133, 20);
+            this.button5.TabIndex = 10;
+            this.button5.Text = "Search";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // Form1
             // 
@@ -149,6 +166,7 @@ namespace WorkWindowFormAppliacaion
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(722, 661);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.listView2);
@@ -157,10 +175,11 @@ namespace WorkWindowFormAppliacaion
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form1";
             this.Opacity = 0.9D;
             this.RightToLeftLayout = true;
-            this.Text = "Form1";
+            this.Text = "Part Form";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -193,6 +212,7 @@ namespace WorkWindowFormAppliacaion
         private System.Windows.Forms.ColumnHeader partNumLV;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
     }
 }
 

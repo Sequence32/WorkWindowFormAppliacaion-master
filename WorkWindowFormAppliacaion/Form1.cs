@@ -90,6 +90,20 @@ namespace WorkWindowFormAppliacaion
         {
             newPartList.readFromFile();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            listView2.Clear();
+            Node curr = newPartList.head;
+            int i=0;
+            string theText = textBox1.Text;
+            foreach(char letter in theText)
+            {
+
+                if (letter == curr.name[i])
+                    i++;
+            }
+        }
     }
 }
 
